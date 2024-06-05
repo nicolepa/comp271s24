@@ -1,11 +1,15 @@
 /*
- * In the class below, write two methods:
+ * In the class below, write three methods:
  * 
  * First, method resize() to expand the existing array data by doubling its size.
  *
  * Second, method contains(String string) that returns true if String string already
  * exists in array data and false otherwise.
  *
+ * Last, method int countOf(String string) that returns the number of times
+ * the String string appears in the underlying array of the object.
+ * If String string does not appear in the array, the method should return 0.
+ * 
  * Your code must have comments explaining what is done and why it is done in the
  * way you do it.
  *
