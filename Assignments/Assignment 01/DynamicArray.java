@@ -59,4 +59,65 @@ public class DynamicArray {
         this.position++;
     } // method add
     
+    /**
+     * Extends the existing array data by doubling its size.
+     */
+    private void resize() {
+        // Get current size of existing array data.
+        int currDataSize = this.data.length;
+        // Create new array with size twice that of existing array.
+        int longerSize = 2 * currDataSize;
+        String[] longerArr = new String[longerSize];
+
+        // Populate new array with all data from existing array.
+        for(int i = 0; i < this.data.length; i = i+1){
+            longerArr[i] = this.data[i];
+        }
+
+        // In effect, lengthen existing array by reassigning it
+        // to newly created and populated array.
+        this.data = longerArr;
+    } // method resize
+
+    /**
+     * Returns true if specified item already exists in array data and false otherwise.
+     * @param string specified item to search for
+     */
+    private boolean contains(String string) {
+        // variable to track whether item was found
+        boolean itemWasFound = false;
+  
+        // search through array data for existence of item
+        // note: only need to search until first occurrence of item,
+        int i = 0;
+        while(i < this.data.length && !itemWasFound){
+            itemWasFound = this.data[i].equals(string);
+            i = i+1;
+        }
+    
+        // return result from search
+        return itemWasFound;
+    } // method contains
+
+    /**
+     * Returns the number of times the specified item appears
+     * in the underlying array of the object.
+     * If item does not appear in the array, the method should return 0.
+     * @param string specified item to search for occurrence(s) of
+     */
+    private int countOf(String string) {
+        // variable to track number of occurrences of item
+        int numOfOccurs = 0;
+
+        // search through entirety of array data in order to count occurrences of item
+        for(int i = 0; i < this.data.length; i = i+1){
+            if(this.data[i].equals(string)){
+                numOfOccurs = numOfOccurs + 1;
+            }
+        }
+
+        // return item's number of occurrences
+        return numOfOccurs;
+    } // method countOf
+
 } // class DynamicArray
